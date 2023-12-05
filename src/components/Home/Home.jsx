@@ -24,7 +24,6 @@ const Home = () => {
 
 
     const [currentPage, setCurrentPage] = useState(1)
-    console.log('soy currentPage', currentPage)
 
 
     const getDisplayedServices = () => {
@@ -38,10 +37,8 @@ const Home = () => {
     };
 
     const displayedServices = getDisplayedServices()
-    console.log('displayservuces', displayedServices)
     const cardsPerPage = 20
     const totalPages = Math.ceil(displayedServices.length / cardsPerPage);
-    console.log('totalPages', totalPages)
 
     const startIndex = (currentPage - 1) * cardsPerPage
 
@@ -51,8 +48,6 @@ const Home = () => {
 
 
     const currentServices = displayedServices.slice(startIndex, endIndex)
-    console.log('paginado', 'currentPage:', currentPage, 'startIndex', startIndex, 'endIndex', endIndex, 'totalPage', totalPages, 'longitud displayedServices:', displayedServices.length)
-
 
 
     const handleByCategory = (category) => {
@@ -62,7 +57,6 @@ const Home = () => {
 
     useEffect(() => {
         dispatch(getAllServices());
-        console.log('soy el useEffect', allServices)
     }, [dispatch]);
 
 
@@ -77,7 +71,9 @@ const Home = () => {
                 <button className='btn__item' onClick={() => handleByCategory('Ebook')}>EBooks</button>
 
             </div>
-            <h1 className='title'>La mejor web para cursos on demand</h1>
+            <div className='container__h1'>
+                <h1 className='title'>La mejor web para cursos on demand</h1>
+            </div>
             <div className="cards__container">
 
                 {[...Array(totalPages).keys()].map((pageIndex) => (
