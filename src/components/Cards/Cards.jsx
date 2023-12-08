@@ -1,7 +1,4 @@
 import React from 'react'
-// import { Link } from 'react-router-dom'
-// import { BsInstagram } from 'react-icons/bs'
-// import { ImFacebook2 } from 'react-icons/im'
 import './Cards.css'
 
 const Cards = ({ service }) => {

@@ -10,7 +10,13 @@ function App() {
 
   return (
     <>
-      <Toaster position='bottom-right' />
+      <Toaster position='bottom-right'
+        toastOptions={{
+          style: {
+            background: 'linear-gradient(#FF6464, #FFAA64)'
+          }
+        }}
+      />
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />

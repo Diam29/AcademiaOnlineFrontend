@@ -20,7 +20,7 @@
     box-shadow: 0 10px 20px rgb(61, 40, 54);
     padding: 0px 0px 42px 0px;
     overflow: hidden;
-    border-radius: 10px;
+    border-radius: 15px 25px 15px 15px;
     transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
     box-sizing: border-box;
 

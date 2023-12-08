@@ -49,6 +49,7 @@ button:active {
 
 .searchInput::placeholder {
     color: var(--color-text);
+
 }
 
 @media screen and (max-width: 800px) {

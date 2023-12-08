@@ -49,10 +49,10 @@
     z-index: -1;
 }
 
+
 .title {
     color: #FFAA64;
     font-size: 4rem;
-    margin-left: 60px;
     animation-duration: 2s;
     animation-name: slidein;
     z-index: 1;
