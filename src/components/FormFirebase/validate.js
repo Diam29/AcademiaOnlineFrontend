@@ -1,17 +1,18 @@
-// validate.js
+export const validate = (email, password) => {
+    let errors = {};
 
-import * as yup from 'yup';
+    if (!email) {
+        errors.email = 'El campo de correo electrónico es obligatorio';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        errors.email = 'El formato de correo electrónico es incorrecto';
+    }
 
-export const loginSchema = yup.object().shape({
-    email: yup.string().email().required(),
-    password: yup.string().required().min(6),
-});
+    if (!password) {
+        errors.password = 'El campo de contraseña es obligatorio';
+    } else if (password.length < 6) {
+        errors.password = 'La contraseña debe tener al menos 6 caracteres';
+    }
 
-export const registerSchema = yup.object().shape({
-    email: yup.string().email().required(),
-    password: yup.string().required().min(6),
-});
+    return errors;
+};
 
-export const resetPasswordSchema = yup.object().shape({
-    email: yup.string().email().required(),
-});

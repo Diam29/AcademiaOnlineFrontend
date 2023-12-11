@@ -1,14 +1,14 @@
-
-
-
 import React from 'react';
 import { useState } from 'react';
 import { toast } from 'react-hot-toast'
 import { useAuth } from '../../context/AuthContext';
 import { FcGoogle } from 'react-icons/fc';
+import { validate } from './validate.js'
 import './FromFirebase.css';
 
-const FromFirebase = ({ onCloseForm, onAuthentication }) => {
+const FromFirebase = ({ onCloseForm }) => {
+
+
     const auth = useAuth();
 
     const { user } = auth;
@@ -27,11 +27,20 @@ const FromFirebase = ({ onCloseForm, onAuthentication }) => {
     const [showResetForm, setShowResetForm] = useState(false);
     const [showLoginForm, setShowLoginForm] = useState(true);
 
+    const [validationErrors, setValidationErrors] = useState({});
+
 
 
 
     const handleResetPassword = async (e) => {
         e.preventDefault();
+        const errors = validate(emailLogin);
+
+        if (Object.keys(errors).length > 0) {
+            console.log('Errores de validación:', errors);
+            setValidationErrors(errors);
+            return;
+        }
 
         try {
             await auth.resetPassword(email);
@@ -50,13 +59,33 @@ const FromFirebase = ({ onCloseForm, onAuthentication }) => {
 
     const handlerLogin = async (e) => {
         e.preventDefault();
+        const errors = validate(emailLogin, passwordLogin);
+
+        if (Object.keys(errors).length > 0) {
+            console.log('Errores de validación:', errors);
+            setValidationErrors(errors);
+            return;
+        }
+
         try {
             await auth.login(emailLogin, passwordLogin);
             toast.success(`Bienvenido ${emailLogin}`);
             onCloseForm();
         } catch (error) {
-            console.log('error.message', error.message)
-        };
+            console.error('Error de Firebase:', error);
+
+            if (error.code === 'auth/user-not-found') {
+                toast.error = 'Usuario no encontrado. Por favor, verifica tu dirección de correo electrónico.';
+            } else if (error.code === 'auth/invalid-email') {
+                toast.error = 'Formato de correo electrónico incorrecto. Por favor, verifica tu dirección de correo electrónico.';
+            } else if (error.code === 'auth/too-many-requests') {
+                toast.error = 'Demasiados intentos de inicio de sesión fallidos. Por favor, inténtalo de nuevo más tarde.';
+            } else if (error.code === 'auth/invalid-credential') {
+                toast.error('Hay un error en la contraseña, intentelo de nuevo')
+            } else {
+                console.error('Código de error no manejado:', error.code);
+            }
+        }
     }
 
     const handlerGoogle = async (e) => {
@@ -72,12 +101,19 @@ const FromFirebase = ({ onCloseForm, onAuthentication }) => {
 
     const handlerLogout = () => {
         auth.logout();
-        toast.success('Se ha deslogueado con exito!!')
+        toast.success('Ha cerrado sesión exitosamente!!')
         onCloseForm();
     };
 
     const handlerRegister = (e) => {
         e.preventDefault();
+        const errors = validate(emailRegister, passwordRegister);
+
+        if (Object.keys(errors).length > 0) {
+            console.log('Errores de validación:', errors);
+            setValidationErrors(errors);
+            return;
+        }
         try {
             auth.register(emailRegister, passwordRegister);
             toast.success(`Se ha registrado, ${emailRegister}`)
@@ -94,6 +130,7 @@ const FromFirebase = ({ onCloseForm, onAuthentication }) => {
     };
 
 
+
     return (
         <div className="main">
 
@@ -101,7 +138,8 @@ const FromFirebase = ({ onCloseForm, onAuthentication }) => {
 
             {showResetForm ? (
                 <div className="forgot">
-                    <form className="form">
+                    {/* <form className="form" onSubmit={handleSubmit(onSubmit)}> */}
+                    <form className='form'>
                         <label htmlFor="chk" aria-hidden="true">
                             Olvidó su Contraseña?
                         </label>
@@ -110,8 +148,8 @@ const FromFirebase = ({ onCloseForm, onAuthentication }) => {
                             className="input"
                             type="email"
                             value={email}
+                            autoComplete="email"
                             onChange={(e) => setEmail(e.target.value)}
-                            required
                         />
                         <button className='button__reset' type="submit" onClick={handleResetPassword}>
                             Restablecer Contraseña
@@ -122,7 +160,7 @@ const FromFirebase = ({ onCloseForm, onAuthentication }) => {
             ) : (
 
                 <div className="login">
-                    <form className="form">
+                    <form className='form'>
                         <label htmlFor="chk" aria-hidden="true">
                             Log in
                         </label>
@@ -131,17 +169,26 @@ const FromFirebase = ({ onCloseForm, onAuthentication }) => {
                             type="email"
                             name="email"
                             placeholder="Email"
+                            autoComplete="email"
                             required=""
                             onChange={(e) => setEmailLogin(e.target.value)}
                         />
                         <input
                             className="input"
                             type="password"
-                            name="pswd"
+                            name="password"
                             placeholder="Password"
+                            autoComplete="new-password"
                             required=""
                             onChange={(e) => setPasswordLogin(e.target.value)}
                         />
+                        {validationErrors && (
+                            <div className="error__message">
+                                {Object.values(validationErrors).map((error, index) => (
+                                    <p key={index}>{error}</p>
+                                ))}
+                            </div>
+                        )}
                         <div className='container__buttons'>
                             <button className="button__form" onClick={handlerLogin}>
                                 Log in
@@ -160,7 +207,8 @@ const FromFirebase = ({ onCloseForm, onAuthentication }) => {
 
             )}
             <div className="register">
-                <form className="form">
+                <form className='form'>
+
                     <label htmlFor="chk" aria-hidden="true">
                         Register
                     </label>
@@ -169,17 +217,26 @@ const FromFirebase = ({ onCloseForm, onAuthentication }) => {
                         type="email"
                         name="email"
                         placeholder="Email"
+                        autoComplete="email"
                         required=""
                         onChange={(e) => setEmailRegister(e.target.value)}
                     />
                     <input
                         className="input"
                         type="password"
-                        name="pswd"
+                        name="password"
                         placeholder="Password"
                         required=""
+                        autoComplete="new-password"
                         onChange={(e) => setPasswordRegister(e.target.value)}
                     />
+                    {validationErrors && (
+                        <div className="error__message">
+                            {Object.values(validationErrors).map((error, index) => (
+                                <p key={index}>{error}</p>
+                            ))}
+                        </div>
+                    )}
                     <button className="button__form" onClick={handlerRegister}>
                         Registro
                     </button>

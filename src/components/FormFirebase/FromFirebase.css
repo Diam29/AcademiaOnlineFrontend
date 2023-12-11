@@ -182,11 +182,12 @@ label {
     margin-top: 60px;
 }
 
-/* .form {
-    margin-top: 20px;
-} */
-
 .text__forgot {
     color: aliceblue;
     margin-bottom: 20px;
+}
+
+.error__message {
+    color: #a4af06;
+    font-size: 18px;
 }

@@ -42,6 +42,7 @@ export const AuthProvider = ({ children }) => {
             setUser(response.user)
         } catch (error) {
             setError(error.message)
+            console.log('soy mensaje de login context', error.message)
             throw error
         }
     }
