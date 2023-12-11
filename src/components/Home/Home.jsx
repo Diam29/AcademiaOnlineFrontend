@@ -67,7 +67,7 @@ const Home = () => {
                 <button className='btn__item' onClick={() => handleByCategory('Desarrollo Web')}>Desarrollo Web</button>
                 <button className='btn__item' onClick={() => handleByCategory('Informatica')}>Informática</button>
                 <button className='btn__item' onClick={() => handleByCategory('Marketing')}>Marketing</button>
-                <button className='btn__item' onClick={() => handleByCategory('Inteligencia Artificial')}>Inteligencia Artificial</button>
+                <button className='btn__item' onClick={() => handleByCategory('Astrología')}>Inteligencia Artificial</button>
                 <button className='btn__item' onClick={() => handleByCategory('Ebook')}>EBooks</button>
 
             </div>
