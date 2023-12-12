@@ -64,11 +64,11 @@ const Home = () => {
         <div className='container-fluid'>
             <div className='container__box__home'>
                 <button className={`btn__item ${activeCategory === 'Finanzas' ? 'active' : ''}`} onClick={() => handleByCategory('Finanzas')}>Finanzas</button>
-                <button className='btn__item' onClick={() => handleByCategory('Desarrollo Web')}>Salud</button>
+                <button className='btn__item' onClick={() => handleByCategory('Salud')}>Salud</button>
                 <button className='btn__item' onClick={() => handleByCategory('Informatica')}>Informática</button>
-                <button className='btn__item' onClick={() => handleByCategory('Marketing')}>Deporte</button>
+                <button className='btn__item' onClick={() => handleByCategory('Deporte')}>Deporte</button>
                 <button className='btn__item' onClick={() => handleByCategory('Astrología')}>Astrología</button>
-                <button className='btn__item' onClick={() => handleByCategory('Ebook')}>Educación</button>
+                <button className='btn__item' onClick={() => handleByCategory('Educacion')}>Educación</button>
 
             </div>
             <div className='container__h1'>
