@@ -67,8 +67,13 @@ const Home = () => {
                 <button className='btn__item' onClick={() => handleByCategory('Salud')}>Salud</button>
                 <button className='btn__item' onClick={() => handleByCategory('Informatica')}>Informática</button>
                 <button className='btn__item' onClick={() => handleByCategory('Deporte')}>Deporte</button>
-                <button className='btn__item' onClick={() => handleByCategory('Astrología')}>Astrología</button>
+                <button className='btn__item' onClick={() => handleByCategory('Espiritualidad')}>Espiritualidad</button>
                 <button className='btn__item' onClick={() => handleByCategory('Educacion')}>Educación</button>
+                <button className='btn__item' onClick={() => handleByCategory('Arte')}>Arte</button>
+                <button className='btn__item' onClick={() => handleByCategory('Ciencia')}>Ciencia</button>
+                <button className='btn__item' onClick={() => handleByCategory('Redes')}>Redes</button>
+                <button className='btn__item' onClick={() => handleByCategory('Juegos')}>Juegos</button>
+                <button className='btn__item' onClick={() => handleByCategory('Oficios')}>Oficios</button>
 
             </div>
             <div className='container__h1'>
