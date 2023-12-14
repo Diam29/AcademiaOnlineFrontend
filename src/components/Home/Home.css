@@ -1,10 +1,11 @@
 .container__box__home {
     border-bottom: 1px solid #FFAA64;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     text-align: center;
     flex-wrap: wrap;
+    gap: 5px;
     padding-bottom: 1rem;
 }
 
@@ -155,25 +156,6 @@ div>.span__copy {
 }
 
 @media screen and (max-width: 800px) {
-    .container-fluid {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .cards__container {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-    }
-
-    .card__row {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
 
     .card__row>div:nth-child(odd) {
         width: 45%;
@@ -181,7 +163,7 @@ div>.span__copy {
     }
 
     .card__row>div:nth-child(even) {
-        width: 48%;
+        width: 45%;
         margin-bottom: 10px;
     }
 
@@ -235,15 +217,19 @@ div>.span__copy {
         justify-content: space-between;
     }
 
-    .card__row>div {
-        width: 48%;
+    .card__row>div:nth-child(odd) {
+        width: 75%;
+        margin-bottom: 10px;
     }
 
+    .card__row>div:nth-child(even) {
+        width: 75%;
+        margin-bottom: 10px;
+    }
 
     .btn__item {
         font-size: 1rem;
     }
-
 
     .content .heading {
         font-size: 10px;
@@ -276,7 +262,7 @@ div>.span__copy {
     }
 
     .card__row>div {
-        width: 20%;
+        width: 25%;
     }
 
 }

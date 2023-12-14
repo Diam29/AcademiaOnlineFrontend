@@ -74,6 +74,7 @@ const Home = () => {
                 <button className='btn__item' onClick={() => handleByCategory('Redes')}>Redes</button>
                 <button className='btn__item' onClick={() => handleByCategory('Juegos')}>Juegos</button>
                 <button className='btn__item' onClick={() => handleByCategory('Oficios')}>Oficios</button>
+                <button className='btn__item' onClick={() => handleByCategory('EBooks')}>EBooks</button>
 
             </div>
             <div className='container__h1'>
