@@ -11,9 +11,10 @@ import './Navbar.css'
 const Navbar = () => {
     const [showLoginFrom, setShowLoginFrom] = useState(false)
     const { user, logout } = useAuth();
-    console.log('soy usario', user)
-
     const [userPhoto, setUserPhoto] = useState(null);
+    const [userInitials, setUserInitials] = useState('');
+    const [favorite, setFavorite] = useState([])
+
 
     const handleClose = () => {
         setShowLoginFrom(false);
@@ -25,7 +26,15 @@ const Navbar = () => {
         console.log('handleClick', showLoginFrom)
     }
 
-    const [userInitials, setUserInitials] = useState('');
+    const toggleFavorite = (servicedId) => {
+        const isFavorite = favorite.includes(servicedId)
+
+        if (isFavorite) {
+            setFavorite(favorite.filter(id => id !== servicedId))
+        } else {
+            setFavorite([...favorite, servicedId])
+        }
+    }
 
     useEffect(() => {
         if (user) {
@@ -68,7 +77,7 @@ const Navbar = () => {
                     <SearchBar />
                 </div>
                 <NavLink to='/favorite' className='favorite__icon'>
-                    <BsSuitHeart className='icon' />
+                    <BsSuitHeart className={`icon ${favorite.length > 0 ? 'favorited' : ''}`} />
                 </NavLink>
                 <div className="button__icon" onClick={handleClick}>
                     {user ? (
