@@ -192,13 +192,10 @@ div>.span__copy {
     }
 
     .btn__item {
-        font-size: 0.8rem;
+        font-size: 1rem;
         margin: 5px 0;
     }
 
-    .btn__item__ebook {
-        font-size: 0.5rem;
-    }
 
     .content .heading {
         font-size: 10px;
@@ -242,12 +239,9 @@ div>.span__copy {
 
 
     .btn__item {
-        font-size: 0.8rem;
+        font-size: 1rem;
     }
 
-    .btn__item__ebook {
-        font-size: 0.5rem;
-    }
 
     .content .heading {
         font-size: 10px;
