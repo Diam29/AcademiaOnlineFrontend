@@ -78,7 +78,9 @@ const Home = () => {
 
             </div>
             <div className='container__h1'>
-                <h1 className='title'>La mejor web para cursos on demand</h1>
+                <h1 className='title'>Cursos Online certificados!!!</h1>
+                <h5 className='title__sub'>Academia Online es la mejor opcion a tu Educación!!</h5>
+                <h5 className='title__sub'>Mejor Plataforma de Cursos Online de América Latina</h5>
             </div>
             <div className="cards__container">
 
