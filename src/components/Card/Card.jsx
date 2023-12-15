@@ -3,9 +3,9 @@ import Cards from '../Cards/Cards'
 
 function BasicExample({ allServices }) {
 
-    console.log('entre a card')
+    // console.log('entre a card')
     const allServices = allServices
-    console.log('soy allServicesBack', allServicesBack)
+    // console.log('soy allServicesBack', allServicesBack)
 
     return (
         <Card className='card__container'>

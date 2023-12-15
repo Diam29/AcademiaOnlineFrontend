@@ -24,7 +24,9 @@ const SearchBar = () => {
         <form onSubmit={handleSubmit}>
             <div className="searchBox">
 
-                <input className="searchInput"
+                <input
+                    id='searchServices'
+                    className="searchInput"
                     type="search"
                     placeholder="Busca tu curso"
                     value={serviceByName}

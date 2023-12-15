@@ -8,7 +8,8 @@ const firebaseConfig = {
     projectId: "academiaonline-1e762",
     storageBucket: "academiaonline-1e762.appspot.com",
     messagingSenderId: "717736888537",
-    appId: "1:717736888537:web:d40c09ef201293cedb16c8"
+    appId: "1:717736888537:web:d40c09ef201293cedb16c8",
+    persistence: "none"
 };
 
 // Initialize Firebase

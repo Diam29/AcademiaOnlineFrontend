@@ -138,7 +138,6 @@ const FromFirebase = ({ onCloseForm }) => {
 
             {showResetForm ? (
                 <div className="forgot">
-                    {/* <form className="form" onSubmit={handleSubmit(onSubmit)}> */}
                     <form className='form'>
                         <label htmlFor="chk" aria-hidden="true">
                             Olvidó su Contraseña?
