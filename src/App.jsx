@@ -10,9 +10,11 @@ import { Toaster } from 'react-hot-toast';
 function App() {
 
   const helmetContext = {};
+  console.log('helmet', helmetContext)
   return (
-    <HelmetProvider context={helmetContext}>
-      <>
+    <>
+      <HelmetProvider context={helmetContext}>
+        {/* <HelmetProvider> */}
         <Toaster position='bottom-right'
           toastOptions={{
             style: {
@@ -25,8 +27,8 @@ function App() {
           <Route path='/' element={<Home />} />
 
         </Routes>
-      </>
-    </HelmetProvider>
+      </HelmetProvider>
+    </>
   )
 }
 

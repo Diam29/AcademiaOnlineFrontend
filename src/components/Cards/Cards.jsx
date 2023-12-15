@@ -1,16 +1,19 @@
 import React from 'react'
+import { Helmet } from 'react-helmet-async'
 import './Cards.css'
 
 const Cards = ({ service }) => {
     const { title, image, smallDescription, price, link } = service
 
-    // console.log('Cards imagen:', service.image)
     return (
         <div className='container__card'>
+            <Helmet>
+                <title>Cursos online</title>
+            </Helmet>
             <div className="card__container">
                 <div className="content">
                     <div className='container__foto'>
-                        <img className="foto__service" src={image[0]} alt="fotos de porductos" loading='lazy' />
+                        <img className="foto__service" src={image[0]} alt="Cursos" loading='lazy' />
                     </div>
 
                     <h1 className="heading">{title}
