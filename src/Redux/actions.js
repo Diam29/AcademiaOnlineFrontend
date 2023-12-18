@@ -7,7 +7,6 @@ const url = 'https://academia-online-back.onrender.com/'
 const instance = axios.create({
     withCredentials: true,
     credentials: 'include',
-    // mode: 'no-cors',
 });
 
 // MOSTRAR TODOS LOS SERVICIOS
