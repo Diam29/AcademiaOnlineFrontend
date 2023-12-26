@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './components/Home/Home'
 import Navbar from './components/Navbar/Navbar';
 import { HelmetProvider } from 'react-helmet-async'
+import { hydrate } from 'react-dom';
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Toaster } from 'react-hot-toast';
@@ -13,6 +14,7 @@ function App() {
   console.log('helmet', helmetContext)
   return (
     <>
+      hydrate(
       <HelmetProvider context={helmetContext}>
         {/* <HelmetProvider> */}
         <Toaster position='bottom-right'
@@ -28,6 +30,7 @@ function App() {
 
         </Routes>
       </HelmetProvider>
+      )
     </>
   )
 }
