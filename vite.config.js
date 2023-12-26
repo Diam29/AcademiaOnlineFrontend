@@ -5,7 +5,7 @@ import { defineConfig } from 'vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [million.vite({ auto: true }), react(), ViteSSR()],
+  plugins: [million.vite({ auto: true })],
   // esbuild: {
   //   jsxFactory: 'React.createElement',
   //   jsxFragment: 'React.Fragment',
