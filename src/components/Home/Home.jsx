@@ -6,7 +6,6 @@ import { ImFacebook2 } from 'react-icons/im'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux"
 import { Helmet } from 'react-helmet-async'
-// import { Seo } from '../Seo/Seo'
 import { getAllServices, getServicesByCategory, getServicesByName } from '../../Redux/actions'
 import './Home.css'
 
@@ -79,12 +78,7 @@ const Home = () => {
                 <button className='btn__item' onClick={() => handleByCategory('EBooks')}>EBooks</button>
 
             </div>
-            {/* example */}
-            {/* <Seo
-                title={'Learning React Helmet!'}
-                description={'Beginner friendly page for learning React Helmet.'}
-                name={'Company name.'}
-                type={article} /> */}
+    
             <Helmet>
                 <title className='title'>Enseñanza Online</title>
                 <meta name="description" content="Descubre cursos online certificados en Academia Online. Variedad de categorías y temáticas." />
