@@ -2,12 +2,8 @@ import axios from 'axios'
 import { toast } from 'react-hot-toast'
 
 // const url = 'http://localhost:3001/'
-const url = 'https://academia-online-back.onrender.com/'
+const url = 'https://academia-online-back.onrender.com'
 
-// const instance = axios.create({
-//     withCredentials: true,
-//     credentials: 'include',
-// });
 
 // MOSTRAR TODOS LOS SERVICIOS
 

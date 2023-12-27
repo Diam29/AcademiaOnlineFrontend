@@ -58,7 +58,7 @@ const Home = () => {
 
     useEffect(() => {
         dispatch(getAllServices());
-    }, [dispatch]);
+    }, [allServices]);
 
     console.log('servicios en el estado', allServices)
 
@@ -81,7 +81,7 @@ const Home = () => {
             </div>
 
             <Helmet>
-                <title className='title'>Enseñanza Online</title>
+                <title className='title'>Cursos Online</title>
                 <meta name="description" content="Descubre cursos online certificados en Academia Online. Variedad de categorías y temáticas." />
             </Helmet>
 
