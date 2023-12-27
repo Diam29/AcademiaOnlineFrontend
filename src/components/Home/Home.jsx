@@ -60,6 +60,7 @@ const Home = () => {
         dispatch(getAllServices());
     }, [dispatch]);
 
+    console.log('servicios en el estado', allServices)
 
     return (
         <div className='container-fluid'>
@@ -78,7 +79,7 @@ const Home = () => {
                 <button className='btn__item' onClick={() => handleByCategory('EBooks')}>EBooks</button>
 
             </div>
-    
+
             <Helmet>
                 <title className='title'>Enseñanza Online</title>
                 <meta name="description" content="Descubre cursos online certificados en Academia Online. Variedad de categorías y temáticas." />

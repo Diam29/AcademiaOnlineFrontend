@@ -8,7 +8,7 @@ const Cards = ({ service }) => {
     return (
         <div className='container__card'>
             <Helmet>
-                <title>Cursos online</title>
+                <title>Cursos Ondemad</title>
             </Helmet>
             <div className="card__container">
                 <div className="content">
