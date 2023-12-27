@@ -16,7 +16,7 @@ export const GET_SERVICES = 'GET_SERVICES'
 export const getAllServices = () => {
     return async (dispatch) => {
         try {
-            const allServices = (await instance.get(`${url}services`)).data
+            const allServices = (await axios.get(`${url}services`)).data
             console.log('soy allServices de actions', allServices)
 
             return dispatch({
@@ -34,7 +34,7 @@ export const GET_SERVICES_BY_NAME = 'GET_SERVICES_BY_NAME'
 export const getServicesByName = (title) => {
     return async (dispatch) => {
         try {
-            const servicesByName = (await instance.get(`${url}services//title?title=${title}`)).data
+            const servicesByName = (await axios.get(`${url}services//title?title=${title}`)).data
             return dispatch({
                 type: GET_SERVICES_BY_NAME,
                 payload: servicesByName
@@ -52,7 +52,7 @@ export const getServicesByCategory = (category) => {
     console.log('categoria', category)
     return async (dispatch) => {
         try {
-            const servicesByCategory = (await instance.get(`${url}services/category?category=${category}`)).data
+            const servicesByCategory = (await axios.get(`${url}services/category?category=${category}`)).data
             console.log('entre a actions de getServicesByCategory', servicesByCategory)
             return dispatch({
                 type: GET_SERVICES_BY_CATEGORY,
