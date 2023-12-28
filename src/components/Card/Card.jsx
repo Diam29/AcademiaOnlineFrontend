@@ -3,9 +3,7 @@ import Cards from '../Cards/Cards'
 
 function BasicExample({ allServices }) {
 
-    console.log('entre a card')
     const allServices = allServices
-    console.log('soy allServicesBack', allServices)
 
     return (
         <Card className='card__container'>

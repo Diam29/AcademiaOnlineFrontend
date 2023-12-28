@@ -90,7 +90,7 @@ const Home = () => {
                 <h1 className='title'>Cursos Online certificados!!!</h1>
             </div>
             <div className="cards__container">
-                {/* 
+
                 {[...Array(totalPages).keys()].map((pageIndex) => (
                     <div key={pageIndex} className='card__row'>
                         {currentServices
@@ -99,8 +99,8 @@ const Home = () => {
                                 <Cards key={service.id} service={service} />
                             ))}
                     </div>
-                ))} */}
-                {allServices.length === 0 ? (
+                ))}
+                {/* {allServices.length === 0 ? (
                     <p>Cargando...</p>
                 ) : (
                     // Renderizado normal de servicios
@@ -113,7 +113,7 @@ const Home = () => {
                                 ))}
                         </div>
                     ))
-                )}
+                )} */}
             </div>
             <div className="pagination">
                 <button className='btn__pagination' onClick={() => setCurrentPage(currentPage - 1)} disabled={currentPage === 1}>
